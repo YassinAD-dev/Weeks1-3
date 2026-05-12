@@ -10,6 +10,8 @@ public class SquareMover : MonoBehaviour
     //xMin
     public float xMax;
     public float xMin;
+    public float yMax;
+    public float yMin;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -32,9 +34,26 @@ public class SquareMover : MonoBehaviour
         //When assigning a value to a float, we want to append "f" to the end
         newPosition.x += speed;//
         transform.position = newPosition;
+        newPosition.y += speed;
+        transform.position = newPosition;
 
-        //xMax
-        if (newPosition.x > xMax)
+        //yMax
+        if (newPosition.y > xMax)
+        {
+            //OPTION 1:
+            speed *= -1f;
+
+            //OPTION 2:
+            //speed = -speed;
+
+        }
+        //yMin
+        if (newPosition.y < xMin)
+        {
+            speed *= -1f;
+        }
+            //xMax
+            if (newPosition.x > xMax)
         {
             //OPTION 1:
             speed *= -1f;
