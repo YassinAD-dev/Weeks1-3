@@ -2,41 +2,37 @@ using UnityEngine;
 
 public class Spinner : MonoBehaviour
 {
-    public float speed;
-    //zMax
-    //zMin
     public float zMax;
     public float zMin;
+    public float speed;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        //Debug.Log("Hi!");
+        //Debug.Log(transform.eulerAngles);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 currentRoatation = transform.eulerAngles;
-
-        currentRoatation.z += speed*Time.deltaTime;
-        
-
-        transform.eulerAngles = currentRoatation;
-
-        currentRoatation.z += speed;
-        transform.eulerAngles = currentRoatation;
+        Vector3 currentRotation = transform.eulerAngles;
+        currentRotation.z += speed * Time.deltaTime;
+        transform.eulerAngles = currentRotation;
 
 
-        //zMax
-        if (currentRoatation.z > zMax)
+
+        if(currentRotation.z > zMax)
         {
-            Debug.Log("Crossing the upper threshold currentZ[" + currentRoatation.z.ToString() + "] zMax[" + zMax.ToString() + "]"); speed = -speed;
+            Debug.Log("Crossing the upper threshold currentZ["+currentRotation.z.ToString()+"] zMax["+zMax.ToString()+"]");
+            speed = -speed;
+            //speed *= -1f;
         }
-        if (currentRoatation.y < zMin)
+        if(currentRotation.z < zMin)
         {
-            Debug.Log("crossing the low");
-            speed = +speed;
+            Debug.Log(("Crossing the upper threshold currentZ["+currentRotation.z.ToString()+"] zMax["+zMax.ToString()+"]"));
+            speed = -speed;
         }
-        
+
     }
 }
