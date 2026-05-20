@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class CursuerFollower : MonoBehaviour
-{ // public camera makes it so the currosr doesnt just go out of bounds and confoim the postion of screen space
+{ // public camera makes it so the target doesnt just go out of bounds and confoim the postion of screen space when it needs to be in the shooting range
 
     public Camera gameCamera;
 
